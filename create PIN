@@ -1,0 +1,35 @@
+import java.util.*;
+import java.io.*;
+class main{
+public int createPIN(int input1,int input2,int input3){
+ Set<Integer> s_os=new HashSet<>();
+         Set<Integer> s_ts=new HashSet<>();
+         Set<Integer> s_hs=new HashSet<>();
+         add(10,s_os,s_ts,s_hs,input1,input2,input3);
+         add(100,s_os,s_ts,s_hs,input1,input2,input3);
+         add(1000,s_os,s_ts,s_hs,input1,input2,input3);
+         int i=Math.max(Collections.max(s_os),Collections.max(s_ts));
+         int i4=Math.max(i,Collections.max(s_hs));
+         int i3=Collections.min(s_hs);
+         int i2=Collections.min(s_ts);
+         int i1=Collections.min(s_os);
+         return i4*1000+i3*100+i2*10+i1;
+	}
+    public void add(int m,Set<Integer> s_os,Set<Integer> s_ts,Set<Integer> s_hs,int n1,int n2,int n3){
+        if(m==10){
+          s_os.add(n1%10);
+          s_os.add(n2%10);
+          s_os.add(n3%10);
+        }
+        else if(m==100){
+           s_ts.add((n1/10)%10);
+           s_ts.add((n2/10)%10);
+           s_ts.add((n3/10)%10);
+        }
+        else {
+           s_hs.add(n1/100);
+           s_hs.add(n2/100);
+           s_hs.add(n3/100);
+        }
+    }
+}
