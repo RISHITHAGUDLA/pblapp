@@ -1,0 +1,26 @@
+PROBLEM STATEMENT
+input1= no of rows(5)
+input2= weight of head row(10)
+input3=weight increment for subsequent rows(2)
+op =10+(12+12)+(14+14+14)+(16+16+16+16)+(18+18+18+18+18)=230
+
+pattern looks like
+*
+**
+***
+****
+*****
+
+
+CODE
+import java.util.*;
+class main{
+public int totalHillWeight(int input1,int input2,int input3){
+int sum=input2,s=input2;
+    for(int i=2;i<=input1;i++){
+       s=s+input3;
+       sum+=i*s;
+    }
+    return sum;
+}
+}
